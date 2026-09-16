@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Verdict Watch — CWI trust-claim re-verification</title>
+<meta name="description" content="Verification verdicts go stale. Verdict Watch re-checks signed trust claims on a cadence and flags drift — STILL_VALID / CHANGED / DEAD / UNREACHABLE, with diffs.">
+<meta property="og:title" content="Verdict Watch — CWI">
+<meta property="og:description" content="The invalidation primitive for verified claims. Re-checks evidence, flags drift, never auto-downgrades.">
+<script src="https://cumulativewebinc.github.io/cwi-i18n/i18n.js" data-app="verdict-watch"></script>
+<script src="./watcher.js"></script>
+<style>
+  :root { --bg:#0b0b10; --panel:#14141c; --line:#26262f; --gold:#e3b93c; --gold-dim:#9a7c26;
+          --ink:#f2f0e8; --mut:#a7a49a; --ok:#4ade80; --changed:#ff9f43; --dead:#ff5d5d; --unreach:#7cc7ff; --base:#b79cff; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
+  .wrap { max-width:920px; margin:0 auto; padding:20px 16px 64px; }
+  header.brand { display:flex; align-items:center; gap:12px; padding:8px 0 4px; }
+  .mark { width:40px; height:40px; border-radius:50%; border:2px solid var(--gold);
+          display:flex; align-items:center; justify-content:center; font-weight:800; color:var(--gold); }
+  h1 { font-size:22px; margin:0; }
+  .sub { color:var(--mut); font-size:14px; margin:2px 0 0; }
+  .hero { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:18px; margin:18px 0; font-size:14px; }
+  .hero b { color:var(--gold); }
+  .stats { display:flex; gap:10px; flex-wrap:wrap; margin:14px 0; }
+  .stat { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:10px 14px; font-size:13px; }
+  .stat b { font-size:20px; display:block; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:16px; margin-top:12px; }
+  .chead { display:flex; flex-wrap:wrap; gap:8px; align-items:center; justify-content:space-between; }
+  .subj { font-weight:700; font-size:15px; }
+  .verdict { font-size:11px; font-weight:800; letter-spacing:.06em; padding:4px 10px; border-radius:20px; text-transform:uppercase; }
+  .v-ok { background:#123f22; color:var(--ok); } .v-base { background:#2c2145; color:var(--base); }
+  .v-changed { background:#4a2c10; color:var(--changed); } .v-dead { background:#4a1212; color:var(--dead); }
+  .v-unreach { background:#1d3a5f; color:var(--unreach); }
+  .meta { color:var(--mut); font-size:12px; margin-top:8px; line-height:1.6; }
+  .meta a { color:var(--gold); word-break:break-all; }
+  .mono { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12px; }
+  .row { display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
+  button { cursor:pointer; border-radius:10px; border:1px solid var(--gold-dim);
+           background:var(--gold); color:#141414; font-weight:700; padding:10px 16px; font-size:14px; }
+  button.ghost { background:transparent; color:var(--gold); }
+  button.small { padding:7px 12px; font-size:12px; }
+  button:disabled { opacity:.45; cursor:wait; }
+  input[type=url], input[type=text] { width:100%; background:#0e0e14; color:var(--ink); border:1px solid var(--line);
+           border-radius:10px; padding:11px; font-size:14px; }
+  label { font-size:13px; color:var(--mut); display:block; margin-bottom:6px; }
+  .diff { background:#0e0e14; border:1px solid var(--line); border-radius:8px; padding:10px; margin-top:10px; font-size:12px; }
+  .flag { border:1px solid var(--changed); background:#2a1c0d; border-radius:10px; padding:10px 12px; margin-top:10px; font-size:13px; }
+  .honest { margin-top:22px; font-size:13px; color:var(--mut); background:var(--panel);
+            border:1px solid var(--line); border-radius:10px; padding:14px; }
+  .honest b { color:var(--ink); }
+  pre.jsonout { display:none; background:#0e0e14; border:1px solid var(--line); border-radius:10px;
+            padding:12px; font-size:11px; overflow-x:auto; max-height:360px; overflow-y:auto; margin-top:10px; }
+  footer { margin-top:36px; color:var(--mut); font-size:12px; text-align:center; }
+  footer a { color:var(--gold); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="brand">
+    <div class="mark">CWI</div>
+    <div>
+      <h1 data-i18n="app.title">Verdict Watch</h1>
+      <p class="sub" data-i18n="app.tagline">The invalidation primitive for verified claims — by Cumulative Web Inc</p>
+    </div>
+  </header>
+
+  <div class="hero">
+    <span data-i18n="hero.text"><b>Verification verdicts go stale.</b> A claim verified in September can silently rot — the playlist changes, the page moves, the evidence dies — while every badge still says VERIFIED. Verdict Watch re-checks the evidence behind signed trust claims and reports <b>STILL_VALID / CHANGED / DEAD / UNREACHABLE</b> with diffs. Drift is <b>flagged for human review</b> — claims are never auto-downgraded, because false invalidation is worse than stale verification.</span>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="card">
+    <label for="watchUrl" data-i18n="add.label">Watch a claim — paste a cwi-trust-log envelope URL</label>
+    <input type="url" id="watchUrl" placeholder="https://cumulativewebinc.github.io/cwi-trust-log/claims/clm_….json">
+    <div class="row">
+      <button id="addBtn" data-i18n="add.button">Add watch</button>
+      <button id="checkAllBtn" class="ghost" data-i18n="checkall.button">Check all now</button>
+    </div>
+    <p class="meta" data-i18n="add.hint">Deep link: <span class="mono">?watch=&lt;envelope-url&gt;</span> pre-fills this form. Your watch list is stored locally in your browser.</p>
+  </div>
+
+  <div id="watches"></div>
+
+  <div class="honest">
+    <b data-i18n="honest.title">Honest limits.</b>
+    <ul style="margin:8px 0 0; padding-left:18px;">
+      <li data-i18n="honest.1">Browser checks are best-effort: some evidence URLs block cross-origin reads (CORS). Blocked reads report UNREACHABLE with a CORS note — not DEAD.</li>
+      <li data-i18n="honest.2">Spotify playlist pages are dynamic shells, so Verdict Watch checks the playlist's oEmbed title (reachability + identity), not track positions. Position-level re-scans need the Spotify API.</li>
+      <li data-i18n="honest.3">A CHANGED or DEAD verdict is a flag for human review, never an automatic downgrade of the claim. The trust log is append-only: corrections arrive as new envelopes, old proofs are never rewritten.</li>
+      <li data-i18n="honest.4">Server-side runs (same engine, Node) are authoritative; this page runs the identical engine in your browser.</li>
+    </ul>
+  </div>
+
+  <footer>
+    <span data-i18n="footer.text">Verdict Watch · Cumulative Web Inc · trust/1.0 companion · </span>
+    <a href="./watches.json">watches.json</a> · <a href="./schema/findings.schema.json">findings schema</a> · <a href="https://cumulativewebinc.github.io/cwi-trust-log/">trust log</a>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var W = window.CWIWatch;
+  var store = { watches: [], findings: {} };
+
+  function loadStore() {
+    try {
+      var raw = localStorage.getItem('cwi-verdict-watch');
+      if (raw) store = JSON.parse(raw);
+    } catch (e) {}
+  }
+  function saveStore() {
+    try { localStorage.setItem('cwi-verdict-watch', JSON.stringify(store)); } catch (e) {}
+  }
+
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+
+  function verdictLabel(v) {
+    return { STILL_VALID:'STILL_VALID', BASELINED:'BASELINED', CHANGED:'CHANGED', DEAD:'DEAD', UNREACHABLE:'UNREACHABLE' }[v] || v;
+  }
+
+  function renderStats() {
+    var counts = { STILL_VALID:0, BASELINED:0, CHANGED:0, DEAD:0, UNREACHABLE:0, UNCHECKED:0 };
+    store.watches.forEach(function (w) {
+      var v = (w.latest && w.latest.verdict) || 'UNCHECKED';
+      counts[v] = (counts[v] || 0) + 1;
+    });
+    document.getElementById('stats').innerHTML = Object.keys(counts).map(function (k) {
+      return '<div class="stat"><b>' + counts[k] + '</b>' + esc(k.replace(/_/g,' ')) + '</div>';
+    }).join('');
+  }
+
+  function renderWatches() {
+    var host = document.getElementById('watches');
+    if (!store.watches.length) {
+      host.innerHTML = '<div class="card"><p class="meta">No watches yet. Add one above.</p></div>';
+      return;
+    }
+    host.innerHTML = store.watches.map(function (w, i) {
+      var v = (w.latest && w.latest.verdict) || 'UNCHECKED';
+      var note = (w.latest && w.latest.verdict_note) || 'never checked';
+      var checked = (w.latest && w.latest.checked_at) || '—';
+      var f = store.findings[w.watch_id];
+      return '<div class="card">' +
+        '<div class="chead"><span class="subj">' + esc(w.subject) + '</span>' +
+        '<span class="verdict ' + W.badgeClass(v) + '">' + verdictLabel(v) + '</span></div>' +
+        '<div class="meta">' +
+        (w.statement ? esc(w.statement) + '<br>' : '') +
+        'claim: ' + (w.envelope_url ? '<a href="' + esc(w.envelope_url) + '" target="_blank" rel="noopener">envelope</a>' : esc(w.claim_id || 'raw')) +
+        ' · evidence: <a href="' + esc(w.evidence_url) + '" target="_blank" rel="noopener">' + esc(w.evidence_url) + '</a><br>' +
+        'strategy: <span class="mono">' + esc(w.strategy) + '</span> · cadence: ' + esc(w.cadence) +
+        ' · last check: <span class="mono">' + esc(checked) + '</span><br>' +
+        '<span class="mono">' + esc(note) + '</span></div>' +
+        ((v === 'CHANGED' || v === 'DEAD') ? '<div class="flag">⚠ ' + esc(v === 'CHANGED' ? 'Evidence drifted from the signed baseline. Human review required before any claim is downgraded.' : 'Evidence URL is gone. Human review required — confirm before the claim is corrected in the trust log.') + '</div>' : '') +
+        '<div class="row"><button class="small" data-check="' + i + '">Check now</button>' +
+        (f ? '<button class="small ghost" data-finding="' + i + '">Finding JSON</button>' : '') +
+        '<button class="small ghost" data-remove="' + i + '">Remove</button></div>' +
+        (f ? '<pre class="jsonout" id="fj-' + i + '">' + esc(JSON.stringify(f, null, 2)) + '</pre>' : '') +
+        '</div>';
+    }).join('');
+    host.querySelectorAll('[data-check]').forEach(function (b) {
+      b.onclick = function () { checkOne(parseInt(b.getAttribute('data-check'), 10), b); };
+    });
+    host.querySelectorAll('[data-finding]').forEach(function (b) {
+      b.onclick = function () {
+        var pre = document.getElementById('fj-' + b.getAttribute('data-finding'));
+        pre.style.display = pre.style.display === 'block' ? 'none' : 'block';
+      };
+    });
+    host.querySelectorAll('[data-remove]').forEach(function (b) {
+      b.onclick = function () {
+        store.watches.splice(parseInt(b.getAttribute('data-remove'), 10), 1);
+        saveStore(); renderStats(); renderWatches();
+      };
+    });
+  }
+
+  async function checkOne(i, btn) {
+    var w = store.watches[i];
+    if (btn) btn.disabled = true;
+    try {
+      var result = await W.checkEvidence(w);
+      result.strategy = w.strategy;
+      var cls = W.classify(w.baseline, result);
+      var finding = W.buildFinding(w, result, cls);
+      if (cls.verdict === 'BASELINED' || !w.baseline) {
+        w.baseline = { status: result.status, signals: result.signals, checked_at: result.checked_at };
+        if (cls.verdict === 'BASELINED') { cls.verdict = 'STILL_VALID'; cls.note = 'baseline recorded — evidence matches claim context'; }
+      }
+      w.latest = { verdict: cls.verdict, verdict_note: cls.note, checked_at: result.checked_at };
+      store.findings[w.watch_id] = finding;
+      saveStore();
+    } finally {
+      if (btn) btn.disabled = false;
+      renderStats(); renderWatches();
+    }
+  }
+
+  async function checkAll(btn) {
+    if (btn) btn.disabled = true;
+    try {
+      for (var i = 0; i < store.watches.length; i++) { await checkOne(i, null); }
+    } finally {
+      if (btn) btn.disabled = false;
+      renderStats(); renderWatches();
+    }
+  }
+
+  async function addWatch(url) {
+    url = (url || '').trim();
+    if (!url) return;
+    var res = await fetch(url);
+    if (!res.ok) throw new Error('envelope fetch failed: HTTP ' + res.status);
+    var env = await res.json();
+    var made = W.createWatch(env, url, null);
+    if (made.error) throw new Error('not a trust envelope: ' + made.error);
+    if (store.watches.some(function (w) { return w.claim_id === made.watch.claim_id; })) {
+      throw new Error('already watching this claim');
+    }
+    store.watches.push(made.watch);
+    saveStore(); renderStats(); renderWatches();
+    await checkOne(store.watches.length - 1, null);
+  }
+
+  document.getElementById('addBtn').onclick = function () {
+    var input = document.getElementById('watchUrl');
+    addWatch(input.value).catch(function (e) { alert('Could not add watch: ' + e.message); });
+  };
+  document.getElementById('checkAllBtn').onclick = function () {
+    checkAll(document.getElementById('checkAllBtn'));
+  };
+
+  // Boot: seed from watches.json (first run), merge with local store.
+  fetch('./watches.json').then(function (r) { return r.json(); }).then(function (seed) {
+    loadStore();
+    if (!store.watches.length && seed && seed.watches) {
+      store.watches = seed.watches;
+      saveStore();
+    }
+    var prefill = W.parseWatchParam(window.location.search);
+    if (prefill) document.getElementById('watchUrl').value = prefill;
+    renderStats(); renderWatches();
+  }).catch(function () {
+    loadStore(); renderStats(); renderWatches();
+  });
+})();
+</script>
+</body>
+</html>
