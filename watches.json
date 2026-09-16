@@ -1,1 +1,441 @@
-{"cadence":"daily","generated_at":"2026-09-16T13:20:00Z","issuer":"Cumulative Web Inc","note":"Dogfood watch list: CWI's own 8 trust-log claim envelopes. Baselines established by live server-side checks 2026-09-16 ~13:15 UTC. All 8 evidence endpoints returned HTTP 200 with signals matching the envelopes' recorded state — every claim STILL_VALID at seeding.","protocol":"watch/1.0","watches":[{"baseline":{"checked_at":"2026-09-16T13:15:00Z","signals":{"sha256":"e77e2705d5180b809a4f9deb5839e0050c2d241a704ec8616207bd38e392f4c8"},"status":200},"cadence":"daily","claim_id":"clm_01M2N4M1NB3D6V7JREVW7GNF8J","envelope_url":"https://cumulativewebinc.github.io/cwi-trust-log/claims/clm_01M2N4M1NB3D6V7JREVW7GNF8J.json","evidence_method":"github-release-verification","evidence_url":"https://cumulativewebinc.github.io/cwi-sync-audition/","latest":{"checked_at":"2026-09-16T13:15:00Z","verdict":"STILL_VALID","verdict_note":"sha256 matches baseline"},"statement":"CWI Sync Audition Room shipped to production: 24-track sync catalog browser with real Spotify embeds, editorial mood filters, clearance status, shareable track deep links, and machine-readable tracks.json.","strategy":"http-hash","subject":"app:cwi-sync-audition","tier":"VERIFIED","watch_id":"w_01m2n4m1nb3d6v7jrevw7gnf8j"},{"baseline":{"checked_at":"2026-09-16T13:15:00Z","signals":{"sha256":"ca3e31792b476f780402c2629d13a6e8714e7fa8a99c3bf0c1b11e96b81f0746"},"status":200},"cadence":"daily","claim_id":"clm_01M2N4M1NGV4CESAMM4D1Y0KVD","envelope_url":"https://cumulativewebinc.github.io/cwi-trust-log/claims/clm_01M2N4M1NGV4CESAMM4D1Y0KVD.json","evidence_method":"github-release-verification","evidence_url":"https://cumulativewebinc.github.io/cwi-brief-matcher/","latest":{"checked_at":"2026-09-16T13:15:00Z","verdict":"STILL_VALID","verdict_note":"sha256 matches baseline"},"statement":"CWI Brief Matcher shipped to production: paste a scene brief, get transparent keyword/mood-ranked track recommendations with match reasons, Spotify embeds, pitch copy, and shareable brief links.","strategy":"http-hash","subject":"app:cwi-brief-matcher","tier":"VERIFIED","watch_id":"w_01m2n4m1ngv4cesammm4d1y0kvd"},{"baseline":{"checked_at":"2026-09-16T13:15:00Z","signals":{"sha256":"faacfc0133842cef49e097c872d70ec95cad84c0ca2a031da730bb929505fe94"},"status":200},"cadence":"daily","claim_id":"clm_01M2N4M1NH3BJ6BWJWCGX47PZ0","envelope_url":"https://cumulativewebinc.github.io/cwi-trust-log/claims/clm_01M2N4M1NH3BJ6BWJWCGX47PZ0.json","evidence_method":"github-commit-and-content-verification","evidence_url":"https://cumulativewebinc.github.io/cwi-learn/catalog.json","latest":{"checked_at":"2026-09-16T13:15:00Z","verdict":"STILL_VALID","verdict_note":"sha256 matches baseline"},"statement":"CWI music catalog expanded to 4 artists / 35 tracks (schema cwi.catalog/2.0): That Boy Hi Hat (24), King Akeem (7), 183 Wildboi (3), Dre50 (1).","strategy":"http-hash","subject":"catalog:cwi-multi-artist-expansion","tier":"VERIFIED","watch_id":"w_01m2n4m1nh3bj6bwjwcgx47pz0"},{"baseline":{"checked_at":"2026-09-16T13:15:00Z","signals":{"title":"New Rap Hits"},"status":200},"cadence":"daily","claim_id":"clm_01M2N4M1NJS084QKAA9N4AD6EQ","envelope_url":"https://cumulativewebinc.github.io/cwi-trust-log/claims/clm_01M2N4M1NJS084QKAA9N4AD6EQ.json","evidence_method":"spotify-playlist-scan","evidence_url":"https://open.spotify.com/playlist/5zhnSpZqKRRaOvRMWuT0bL","latest":{"checked_at":"2026-09-16T13:15:00Z","verdict":"STILL_VALID","verdict_note":"title matches baseline (oEmbed reachability check; position-level re-scan needs the Spotify API)"},"statement":"“Shaka Zulu” holding at #21 on Spotify's New Rap Hits playlist (verified by direct playlist scan 2026-09-16).","strategy":"oembed","subject":"placement:new-rap-hits:shaka-zulu","tier":"VERIFIED","watch_id":"w_01m2n4m1njs084qkaa9n4ad6eq"},{"baseline":{"checked_at":"2026-09-16T13:15:00Z","signals":{"title":"New Rap Hits"},"status":200},"cadence":"daily","claim_id":"clm_01M2N4M1NKM8WC5CT9FCGPHAQB","envelope_url":"https://cumulativewebinc.github.io/cwi-trust-log/claims/clm_01M2N4M1NKM8WC5CT9FCGPHAQB.json","evidence_method":"spotify-playlist-scan","evidence_url":"https://open.spotify.com/playlist/5zhnSpZqKRRaOvRMWuT0bL","latest":{"checked_at":"2026-09-16T13:15:00Z","verdict":"STILL_VALID","verdict_note":"title matches baseline (oEmbed reachability check; position-level re-scan needs the Spotify API)"},"statement":"“Zooted Zone” holding at #30 on Spotify's New Rap Hits playlist (verified by direct playlist scan 2026-09-16).","strategy":"oembed","subject":"placement:new-rap-hits:zooted-zone","tier":"VERIFIED","watch_id":"w_01m2n4m1nkm8wc5ct9fcgphaqb"},{"baseline":{"checked_at":"2026-09-16T13:15:00Z","signals":{"title":"New Rap Hits"},"status":200},"cadence":"daily","claim_id":"clm_01M2N4M1NM1APFBWFWJ4CE6ZVG","envelope_url":"https://cumulativewebinc.github.io/cwi-trust-log/claims/clm_01M2N4M1NM1APFBWFWJ4CE6ZVG.json","evidence_method":"spotify-playlist-scan","evidence_url":"https://open.spotify.com/playlist/5zhnSpZqKRRaOvRMWuT0bL","latest":{"checked_at":"2026-09-16T13:15:00Z","verdict":"STILL_VALID","verdict_note":"title matches baseline (oEmbed reachability check; position-level re-scan needs the Spotify API)"},"statement":"“Doves & Diamonds” holding at #31 on Spotify's New Rap Hits playlist (verified by direct playlist scan 2026-09-16).","strategy":"oembed","subject":"placement:new-rap-hits:doves-diamonds","tier":"VERIFIED","watch_id":"w_01m2n4m1nm1apfbwfwj4ce6zvg"},{"baseline":{"checked_at":"2026-09-16T13:15:00Z","signals":{"title":"No Label Needed- Hip Hop & R&B| The Next Wave"},"status":200},"cadence":"daily","claim_id":"clm_01M2N4M1NNNB1YJRM3CWDJSED1","envelope_url":"https://cumulativewebinc.github.io/cwi-trust-log/claims/clm_01M2N4M1NNNB1YJRM3CWDJSED1.json","evidence_method":"spotify-playlist-scan","evidence_url":"https://open.spotify.com/playlist/79Qj8SYOl5zW4m4dMprrX9","latest":{"checked_at":"2026-09-16T13:15:00Z","verdict":"STILL_VALID","verdict_note":"title matches baseline (oEmbed reachability check; position-level re-scan needs the Spotify API)"},"statement":"“Zooted Zone” at #21 of 21 on Flow's “No Label Needed” playlist (verified by direct playlist scan 2026-09-16).","strategy":"oembed","subject":"placement:no-label-needed:zooted-zone","tier":"VERIFIED","watch_id":"w_01m2n4m1nnnb1yjrm3cwdjsed1"},{"baseline":{"checked_at":"2026-09-16T13:15:00Z","signals":{"api_sha":"1e85b626d11c90f6047d822217c79b9fbd0e7fde"},"status":200},"cadence":"daily","claim_id":"clm_01M2N4M1NPH8F2BNVRYY14PCMS","envelope_url":"https://cumulativewebinc.github.io/cwi-trust-log/claims/clm_01M2N4M1NPH8F2BNVRYY14PCMS.json","evidence_method":"huggingface-api-verification","evidence_url":"https://huggingface.co/datasets/BlackLansky/cwi-catalog","latest":{"checked_at":"2026-09-16T13:15:00Z","verdict":"STILL_VALID","verdict_note":"api_sha matches baseline"},"statement":"CWI catalog dataset live on Hugging Face (BlackLansky/cwi-catalog): 35 lines tracks.jsonl + 35 lines catalog.jsonl, commit 1e85b626.","strategy":"hf-dataset","subject":"dataset:cwi-catalog-hf","tier":"VERIFIED","watch_id":"w_01m2n4m1nph8f2bnvryy14pcms"}]}
+{
+  "cadence": "daily",
+  "generated_at": "2026-09-16T15:10:00Z",
+  "issuer": "Cumulative Web Inc",
+  "note": "Dogfood watch list: CWI's own 8 trust-log claim envelopes. Baselines established by live server-side checks 2026-09-16 ~13:15 UTC. All 8 evidence endpoints returned HTTP 200 with signals matching the envelopes' recorded state \u2014 every claim STILL_VALID at seeding. Extended 2026-09-16: +10 Identity Ledger agent identity cards (CWI dogfood), baselines established by live checks ~15:10 UTC.",
+  "protocol": "watch/1.0",
+  "watches": [
+    {
+      "baseline": {
+        "checked_at": "2026-09-16T13:15:00Z",
+        "signals": {
+          "sha256": "e77e2705d5180b809a4f9deb5839e0050c2d241a704ec8616207bd38e392f4c8"
+        },
+        "status": 200
+      },
+      "cadence": "daily",
+      "claim_id": "clm_01M2N4M1NB3D6V7JREVW7GNF8J",
+      "envelope_url": "https://cumulativewebinc.github.io/cwi-trust-log/claims/clm_01M2N4M1NB3D6V7JREVW7GNF8J.json",
+      "evidence_method": "github-release-verification",
+      "evidence_url": "https://cumulativewebinc.github.io/cwi-sync-audition/",
+      "latest": {
+        "checked_at": "2026-09-16T13:15:00Z",
+        "verdict": "STILL_VALID",
+        "verdict_note": "sha256 matches baseline"
+      },
+      "statement": "CWI Sync Audition Room shipped to production: 24-track sync catalog browser with real Spotify embeds, editorial mood filters, clearance status, shareable track deep links, and machine-readable tracks.json.",
+      "strategy": "http-hash",
+      "subject": "app:cwi-sync-audition",
+      "tier": "VERIFIED",
+      "watch_id": "w_01m2n4m1nb3d6v7jrevw7gnf8j"
+    },
+    {
+      "baseline": {
+        "checked_at": "2026-09-16T13:15:00Z",
+        "signals": {
+          "sha256": "ca3e31792b476f780402c2629d13a6e8714e7fa8a99c3bf0c1b11e96b81f0746"
+        },
+        "status": 200
+      },
+      "cadence": "daily",
+      "claim_id": "clm_01M2N4M1NGV4CESAMM4D1Y0KVD",
+      "envelope_url": "https://cumulativewebinc.github.io/cwi-trust-log/claims/clm_01M2N4M1NGV4CESAMM4D1Y0KVD.json",
+      "evidence_method": "github-release-verification",
+      "evidence_url": "https://cumulativewebinc.github.io/cwi-brief-matcher/",
+      "latest": {
+        "checked_at": "2026-09-16T13:15:00Z",
+        "verdict": "STILL_VALID",
+        "verdict_note": "sha256 matches baseline"
+      },
+      "statement": "CWI Brief Matcher shipped to production: paste a scene brief, get transparent keyword/mood-ranked track recommendations with match reasons, Spotify embeds, pitch copy, and shareable brief links.",
+      "strategy": "http-hash",
+      "subject": "app:cwi-brief-matcher",
+      "tier": "VERIFIED",
+      "watch_id": "w_01m2n4m1ngv4cesammm4d1y0kvd"
+    },
+    {
+      "baseline": {
+        "checked_at": "2026-09-16T13:15:00Z",
+        "signals": {
+          "sha256": "faacfc0133842cef49e097c872d70ec95cad84c0ca2a031da730bb929505fe94"
+        },
+        "status": 200
+      },
+      "cadence": "daily",
+      "claim_id": "clm_01M2N4M1NH3BJ6BWJWCGX47PZ0",
+      "envelope_url": "https://cumulativewebinc.github.io/cwi-trust-log/claims/clm_01M2N4M1NH3BJ6BWJWCGX47PZ0.json",
+      "evidence_method": "github-commit-and-content-verification",
+      "evidence_url": "https://cumulativewebinc.github.io/cwi-learn/catalog.json",
+      "latest": {
+        "checked_at": "2026-09-16T13:15:00Z",
+        "verdict": "STILL_VALID",
+        "verdict_note": "sha256 matches baseline"
+      },
+      "statement": "CWI music catalog expanded to 4 artists / 35 tracks (schema cwi.catalog/2.0): That Boy Hi Hat (24), King Akeem (7), 183 Wildboi (3), Dre50 (1).",
+      "strategy": "http-hash",
+      "subject": "catalog:cwi-multi-artist-expansion",
+      "tier": "VERIFIED",
+      "watch_id": "w_01m2n4m1nh3bj6bwjwcgx47pz0"
+    },
+    {
+      "baseline": {
+        "checked_at": "2026-09-16T13:15:00Z",
+        "signals": {
+          "title": "New Rap Hits"
+        },
+        "status": 200
+      },
+      "cadence": "daily",
+      "claim_id": "clm_01M2N4M1NJS084QKAA9N4AD6EQ",
+      "envelope_url": "https://cumulativewebinc.github.io/cwi-trust-log/claims/clm_01M2N4M1NJS084QKAA9N4AD6EQ.json",
+      "evidence_method": "spotify-playlist-scan",
+      "evidence_url": "https://open.spotify.com/playlist/5zhnSpZqKRRaOvRMWuT0bL",
+      "latest": {
+        "checked_at": "2026-09-16T13:15:00Z",
+        "verdict": "STILL_VALID",
+        "verdict_note": "title matches baseline (oEmbed reachability check; position-level re-scan needs the Spotify API)"
+      },
+      "statement": "\u201cShaka Zulu\u201d holding at #21 on Spotify's New Rap Hits playlist (verified by direct playlist scan 2026-09-16).",
+      "strategy": "oembed",
+      "subject": "placement:new-rap-hits:shaka-zulu",
+      "tier": "VERIFIED",
+      "watch_id": "w_01m2n4m1njs084qkaa9n4ad6eq"
+    },
+    {
+      "baseline": {
+        "checked_at": "2026-09-16T13:15:00Z",
+        "signals": {
+          "title": "New Rap Hits"
+        },
+        "status": 200
+      },
+      "cadence": "daily",
+      "claim_id": "clm_01M2N4M1NKM8WC5CT9FCGPHAQB",
+      "envelope_url": "https://cumulativewebinc.github.io/cwi-trust-log/claims/clm_01M2N4M1NKM8WC5CT9FCGPHAQB.json",
+      "evidence_method": "spotify-playlist-scan",
+      "evidence_url": "https://open.spotify.com/playlist/5zhnSpZqKRRaOvRMWuT0bL",
+      "latest": {
+        "checked_at": "2026-09-16T13:15:00Z",
+        "verdict": "STILL_VALID",
+        "verdict_note": "title matches baseline (oEmbed reachability check; position-level re-scan needs the Spotify API)"
+      },
+      "statement": "\u201cZooted Zone\u201d holding at #30 on Spotify's New Rap Hits playlist (verified by direct playlist scan 2026-09-16).",
+      "strategy": "oembed",
+      "subject": "placement:new-rap-hits:zooted-zone",
+      "tier": "VERIFIED",
+      "watch_id": "w_01m2n4m1nkm8wc5ct9fcgphaqb"
+    },
+    {
+      "baseline": {
+        "checked_at": "2026-09-16T13:15:00Z",
+        "signals": {
+          "title": "New Rap Hits"
+        },
+        "status": 200
+      },
+      "cadence": "daily",
+      "claim_id": "clm_01M2N4M1NM1APFBWFWJ4CE6ZVG",
+      "envelope_url": "https://cumulativewebinc.github.io/cwi-trust-log/claims/clm_01M2N4M1NM1APFBWFWJ4CE6ZVG.json",
+      "evidence_method": "spotify-playlist-scan",
+      "evidence_url": "https://open.spotify.com/playlist/5zhnSpZqKRRaOvRMWuT0bL",
+      "latest": {
+        "checked_at": "2026-09-16T13:15:00Z",
+        "verdict": "STILL_VALID",
+        "verdict_note": "title matches baseline (oEmbed reachability check; position-level re-scan needs the Spotify API)"
+      },
+      "statement": "\u201cDoves & Diamonds\u201d holding at #31 on Spotify's New Rap Hits playlist (verified by direct playlist scan 2026-09-16).",
+      "strategy": "oembed",
+      "subject": "placement:new-rap-hits:doves-diamonds",
+      "tier": "VERIFIED",
+      "watch_id": "w_01m2n4m1nm1apfbwfwj4ce6zvg"
+    },
+    {
+      "baseline": {
+        "checked_at": "2026-09-16T13:15:00Z",
+        "signals": {
+          "title": "No Label Needed- Hip Hop & R&B| The Next Wave"
+        },
+        "status": 200
+      },
+      "cadence": "daily",
+      "claim_id": "clm_01M2N4M1NNNB1YJRM3CWDJSED1",
+      "envelope_url": "https://cumulativewebinc.github.io/cwi-trust-log/claims/clm_01M2N4M1NNNB1YJRM3CWDJSED1.json",
+      "evidence_method": "spotify-playlist-scan",
+      "evidence_url": "https://open.spotify.com/playlist/79Qj8SYOl5zW4m4dMprrX9",
+      "latest": {
+        "checked_at": "2026-09-16T13:15:00Z",
+        "verdict": "STILL_VALID",
+        "verdict_note": "title matches baseline (oEmbed reachability check; position-level re-scan needs the Spotify API)"
+      },
+      "statement": "\u201cZooted Zone\u201d at #21 of 21 on Flow's \u201cNo Label Needed\u201d playlist (verified by direct playlist scan 2026-09-16).",
+      "strategy": "oembed",
+      "subject": "placement:no-label-needed:zooted-zone",
+      "tier": "VERIFIED",
+      "watch_id": "w_01m2n4m1nnnb1yjrm3cwdjsed1"
+    },
+    {
+      "baseline": {
+        "checked_at": "2026-09-16T13:15:00Z",
+        "signals": {
+          "api_sha": "1e85b626d11c90f6047d822217c79b9fbd0e7fde"
+        },
+        "status": 200
+      },
+      "cadence": "daily",
+      "claim_id": "clm_01M2N4M1NPH8F2BNVRYY14PCMS",
+      "envelope_url": "https://cumulativewebinc.github.io/cwi-trust-log/claims/clm_01M2N4M1NPH8F2BNVRYY14PCMS.json",
+      "evidence_method": "huggingface-api-verification",
+      "evidence_url": "https://huggingface.co/datasets/BlackLansky/cwi-catalog",
+      "latest": {
+        "checked_at": "2026-09-16T13:15:00Z",
+        "verdict": "STILL_VALID",
+        "verdict_note": "api_sha matches baseline"
+      },
+      "statement": "CWI catalog dataset live on Hugging Face (BlackLansky/cwi-catalog): 35 lines tracks.jsonl + 35 lines catalog.jsonl, commit 1e85b626.",
+      "strategy": "hf-dataset",
+      "subject": "dataset:cwi-catalog-hf",
+      "tier": "VERIFIED",
+      "watch_id": "w_01m2n4m1nph8f2bnvryy14pcms"
+    },
+    {
+      "watch_id": "w_01m2nb3xbwxw4h8ts640mbmf43",
+      "claim_id": "clm_01M2NB3XBWXW4H8TS640MBMF43",
+      "subject": "identity-card:idc_01M2NB3XBWXW4H8TS640MBMF43",
+      "statement": "identity card for KingCode is live and published",
+      "strategy": "http-hash",
+      "evidence_method": "http-hash",
+      "evidence_url": "https://cumulativewebinc.github.io/cwi-identity-ledger/cards/idc_01M2NB3XBWXW4H8TS640MBMF43.json",
+      "envelope_url": null,
+      "cadence": "daily",
+      "tier": "VERIFIED",
+      "baseline": {
+        "checked_at": "2026-09-16T15:10:00Z",
+        "status": 200,
+        "signals": {
+          "sha256": "2ca3879b4f4dc659178fe8b5e86f01fc4808949fe5ac24aad29cc83f1fd3b594"
+        }
+      },
+      "latest": {
+        "checked_at": "2026-09-16T15:10:00Z",
+        "verdict": "STILL_VALID",
+        "verdict_note": "sha256 matches baseline; card live at seeding"
+      }
+    },
+    {
+      "watch_id": "w_01m2nb3xc0jb9dv69hbjfc97sz",
+      "claim_id": "clm_01M2NB3XC0JB9DV69HBJFC97SZ",
+      "subject": "identity-card:idc_01M2NB3XC0JB9DV69HBJFC97SZ",
+      "statement": "identity card for CWI A&R is live and published",
+      "strategy": "http-hash",
+      "evidence_method": "http-hash",
+      "evidence_url": "https://cumulativewebinc.github.io/cwi-identity-ledger/cards/idc_01M2NB3XC0JB9DV69HBJFC97SZ.json",
+      "envelope_url": null,
+      "cadence": "daily",
+      "tier": "VERIFIED",
+      "baseline": {
+        "checked_at": "2026-09-16T15:10:00Z",
+        "status": 200,
+        "signals": {
+          "sha256": "128bf0dfd1236be143484c1ae5840ef1a4e8db296f683fa034773f1d02112205"
+        }
+      },
+      "latest": {
+        "checked_at": "2026-09-16T15:10:00Z",
+        "verdict": "STILL_VALID",
+        "verdict_note": "sha256 matches baseline; card live at seeding"
+      }
+    },
+    {
+      "watch_id": "w_01m2nb3xc20p9ejk4g3znke2ts",
+      "claim_id": "clm_01M2NB3XC20P9EJK4G3ZNKE2TS",
+      "subject": "identity-card:idc_01M2NB3XC20P9EJK4G3ZNKE2TS",
+      "statement": "identity card for CWI Marketing is live and published",
+      "strategy": "http-hash",
+      "evidence_method": "http-hash",
+      "evidence_url": "https://cumulativewebinc.github.io/cwi-identity-ledger/cards/idc_01M2NB3XC20P9EJK4G3ZNKE2TS.json",
+      "envelope_url": null,
+      "cadence": "daily",
+      "tier": "VERIFIED",
+      "baseline": {
+        "checked_at": "2026-09-16T15:10:00Z",
+        "status": 200,
+        "signals": {
+          "sha256": "753b0063c373295deec31ab4f08eeeae7df01284779b2e9d5cd1790e7d28c12d"
+        }
+      },
+      "latest": {
+        "checked_at": "2026-09-16T15:10:00Z",
+        "verdict": "STILL_VALID",
+        "verdict_note": "sha256 matches baseline; card live at seeding"
+      }
+    },
+    {
+      "watch_id": "w_01m2nb3xc3688144kse7289y2g",
+      "claim_id": "clm_01M2NB3XC3688144KSE7289Y2G",
+      "subject": "identity-card:idc_01M2NB3XC3688144KSE7289Y2G",
+      "statement": "identity card for CWI Sync & Licensing is live and published",
+      "strategy": "http-hash",
+      "evidence_method": "http-hash",
+      "evidence_url": "https://cumulativewebinc.github.io/cwi-identity-ledger/cards/idc_01M2NB3XC3688144KSE7289Y2G.json",
+      "envelope_url": null,
+      "cadence": "daily",
+      "tier": "VERIFIED",
+      "baseline": {
+        "checked_at": "2026-09-16T15:10:00Z",
+        "status": 200,
+        "signals": {
+          "sha256": "9ee6112a656dbecc8d94bb91a910af6a01d5098b871b322172a056fae50d2f3d"
+        }
+      },
+      "latest": {
+        "checked_at": "2026-09-16T15:10:00Z",
+        "verdict": "STILL_VALID",
+        "verdict_note": "sha256 matches baseline; card live at seeding"
+      }
+    },
+    {
+      "watch_id": "w_01m2nb3xc4wpa7m6fhkevefd4p",
+      "claim_id": "clm_01M2NB3XC4WPA7M6FHKEVEFD4P",
+      "subject": "identity-card:idc_01M2NB3XC4WPA7M6FHKEVEFD4P",
+      "statement": "identity card for CWI Radio & Playlists is live and published",
+      "strategy": "http-hash",
+      "evidence_method": "http-hash",
+      "evidence_url": "https://cumulativewebinc.github.io/cwi-identity-ledger/cards/idc_01M2NB3XC4WPA7M6FHKEVEFD4P.json",
+      "envelope_url": null,
+      "cadence": "daily",
+      "tier": "VERIFIED",
+      "baseline": {
+        "checked_at": "2026-09-16T15:10:00Z",
+        "status": 200,
+        "signals": {
+          "sha256": "b22441ab0567703ccab4c915fb8b5b63b3731bc96430925013e9fb0da6044ddc"
+        }
+      },
+      "latest": {
+        "checked_at": "2026-09-16T15:10:00Z",
+        "verdict": "STILL_VALID",
+        "verdict_note": "sha256 matches baseline; card live at seeding"
+      }
+    },
+    {
+      "watch_id": "w_01m2nb3xc5va0v3amy1qzddqp9",
+      "claim_id": "clm_01M2NB3XC5VA0V3AMY1QZDDQP9",
+      "subject": "identity-card:idc_01M2NB3XC5VA0V3AMY1QZDDQP9",
+      "statement": "identity card for CWI Press & PR is live and published",
+      "strategy": "http-hash",
+      "evidence_method": "http-hash",
+      "evidence_url": "https://cumulativewebinc.github.io/cwi-identity-ledger/cards/idc_01M2NB3XC5VA0V3AMY1QZDDQP9.json",
+      "envelope_url": null,
+      "cadence": "daily",
+      "tier": "VERIFIED",
+      "baseline": {
+        "checked_at": "2026-09-16T15:10:00Z",
+        "status": 200,
+        "signals": {
+          "sha256": "706aefa269c5c68b070dd368c06e36c7e3ea7ee3dfd9c4302f5b44c4cdf25214"
+        }
+      },
+      "latest": {
+        "checked_at": "2026-09-16T15:10:00Z",
+        "verdict": "STILL_VALID",
+        "verdict_note": "sha256 matches baseline; card live at seeding"
+      }
+    },
+    {
+      "watch_id": "w_01m2nb3xc67qz0ftsbbhry3e19",
+      "claim_id": "clm_01M2NB3XC67QZ0FTSBBHRY3E19",
+      "subject": "identity-card:idc_01M2NB3XC67QZ0FTSBBHRY3E19",
+      "statement": "identity card for CWI Content Studio is live and published",
+      "strategy": "http-hash",
+      "evidence_method": "http-hash",
+      "evidence_url": "https://cumulativewebinc.github.io/cwi-identity-ledger/cards/idc_01M2NB3XC67QZ0FTSBBHRY3E19.json",
+      "envelope_url": null,
+      "cadence": "daily",
+      "tier": "VERIFIED",
+      "baseline": {
+        "checked_at": "2026-09-16T15:10:00Z",
+        "status": 200,
+        "signals": {
+          "sha256": "6a83eead66b019d65eb656fa9e706af13b735e0eebd12b05ffd2d7c9008111b7"
+        }
+      },
+      "latest": {
+        "checked_at": "2026-09-16T15:10:00Z",
+        "verdict": "STILL_VALID",
+        "verdict_note": "sha256 matches baseline; card live at seeding"
+      }
+    },
+    {
+      "watch_id": "w_01m2nb3xc7sgws1ht4yyd89zw2",
+      "claim_id": "clm_01M2NB3XC7SGWS1HT4YYD89ZW2",
+      "subject": "identity-card:idc_01M2NB3XC7SGWS1HT4YYD89ZW2",
+      "statement": "identity card for CWI Data & Analytics is live and published",
+      "strategy": "http-hash",
+      "evidence_method": "http-hash",
+      "evidence_url": "https://cumulativewebinc.github.io/cwi-identity-ledger/cards/idc_01M2NB3XC7SGWS1HT4YYD89ZW2.json",
+      "envelope_url": null,
+      "cadence": "daily",
+      "tier": "VERIFIED",
+      "baseline": {
+        "checked_at": "2026-09-16T15:10:00Z",
+        "status": 200,
+        "signals": {
+          "sha256": "fc8936eedaca5199c5f1202d2c81253e24207d67250b501e61622f8d51d5b33b"
+        }
+      },
+      "latest": {
+        "checked_at": "2026-09-16T15:10:00Z",
+        "verdict": "STILL_VALID",
+        "verdict_note": "sha256 matches baseline; card live at seeding"
+      }
+    },
+    {
+      "watch_id": "w_01m2nb3xc8x31aptjr9s3gpcw5",
+      "claim_id": "clm_01M2NB3XC8X31APTJR9S3GPCW5",
+      "subject": "identity-card:idc_01M2NB3XC8X31APTJR9S3GPCW5",
+      "statement": "identity card for CWI Business Affairs is live and published",
+      "strategy": "http-hash",
+      "evidence_method": "http-hash",
+      "evidence_url": "https://cumulativewebinc.github.io/cwi-identity-ledger/cards/idc_01M2NB3XC8X31APTJR9S3GPCW5.json",
+      "envelope_url": null,
+      "cadence": "daily",
+      "tier": "VERIFIED",
+      "baseline": {
+        "checked_at": "2026-09-16T15:10:00Z",
+        "status": 200,
+        "signals": {
+          "sha256": "86b2739d5e24436ed3ab4ecb07c2adce535721a64b3c53e1f2a04b1804a9d7ab"
+        }
+      },
+      "latest": {
+        "checked_at": "2026-09-16T15:10:00Z",
+        "verdict": "STILL_VALID",
+        "verdict_note": "sha256 matches baseline; card live at seeding"
+      }
+    },
+    {
+      "watch_id": "w_01m2nb3xc9y9zwmefqk7f4w1ae",
+      "claim_id": "clm_01M2NB3XC9Y9ZWMEFQK7F4W1AE",
+      "subject": "identity-card:idc_01M2NB3XC9Y9ZWMEFQK7F4W1AE",
+      "statement": "identity card for Receipt is live and published",
+      "strategy": "http-hash",
+      "evidence_method": "http-hash",
+      "evidence_url": "https://cumulativewebinc.github.io/cwi-identity-ledger/cards/idc_01M2NB3XC9Y9ZWMEFQK7F4W1AE.json",
+      "envelope_url": null,
+      "cadence": "daily",
+      "tier": "VERIFIED",
+      "baseline": {
+        "checked_at": "2026-09-16T15:10:00Z",
+        "status": 200,
+        "signals": {
+          "sha256": "9f5dc27356504d384108b4c30e670d25a8ed74dfd985e3d21b3d4fe7b45fc4c2"
+        }
+      },
+      "latest": {
+        "checked_at": "2026-09-16T15:10:00Z",
+        "verdict": "STILL_VALID",
+        "verdict_note": "sha256 matches baseline; card live at seeding"
+      }
+    }
+  ]
+}
