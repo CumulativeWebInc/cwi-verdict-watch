@@ -247,5 +247,14 @@
   });
 })();
 </script>
+<section id="verify-yourself" style="border:1px solid #2a2f3a;border-radius:12px;padding:20px 22px;margin:28px auto;max-width:860px;background:rgba(255,255,255,.02)">
+<h2 style="margin:0 0 8px">Verify it yourself</h2>
+<p style="margin:0 0 12px;opacity:.85">Don't take our word for it — re-run the check from your own machine or your own agent runtime.</p>
+<ul style="margin:0;padding-left:20px;line-height:1.7">
+<li><strong>In your browser:</strong> <a href="https://cumulativewebinc.github.io/cwi-verdict-watch/">the re-verification UI</a> — paste any trust-log claim envelope URL and it re-checks it itself: STILL_VALID / CHANGED / DEAD / UNREACHABLE, with diffs; ?watch=&lt;envelope-url&gt; deep links pre-fill the form.</li>
+<li><strong>From your agent runtime:</strong> <a href="https://github.com/CumulativeWebInc/cwi-mcp-server">cwi-mcp-server</a> — CWI's read-only MCP server. Call <code>trust_verdict</code>: score the same subject with the CWI Verdict Engine v1.0.0 yourself — empty evidence returns insufficient-data, never a made-up score. Zero-trust guide: <a href="https://github.com/CumulativeWebInc/cwi-mcp-server/blob/main/VERIFY.md">VERIFY.md</a>.</li>
+</ul>
+</section>
+
 </body>
 </html>
