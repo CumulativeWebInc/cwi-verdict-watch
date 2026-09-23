@@ -17,7 +17,7 @@
          font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
   .wrap { max-width:920px; margin:0 auto; padding:20px 16px 64px; }
   header.brand { display:flex; align-items:center; gap:12px; padding:8px 0 4px; }
-  .mark { width:40px; height:40px; border-radius:50%; border:2px solid var(--gold);
+  .mark { width:44px; height:44px; border-radius:50%; border:2px solid var(--gold); object-fit:cover;
           display:flex; align-items:center; justify-content:center; font-weight:800; color:var(--gold); }
   h1 { font-size:22px; margin:0; }
   .sub { color:var(--mut); font-size:14px; margin:2px 0 0; }
@@ -55,11 +55,42 @@
   footer { margin-top:36px; color:var(--mut); font-size:12px; text-align:center; }
   footer a { color:var(--gold); }
 </style>
+<link rel="canonical" href="https://cumulativewebinc.github.io/cwi-verdict-watch/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cumulative Web Inc">
+<meta property="og:url" content="https://cumulativewebinc.github.io/cwi-verdict-watch/">
+<meta property="og:image" content="https://cumulativewebinc.github.io/cwi-verdict-watch/brand/logo.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Verdict Watch — Cumulative Web Inc">
+<meta name="twitter:description" content="The invalidation primitive for verified claims — re-checks the evidence behind signed trust claims and reports drift for human review.">
+<meta name="twitter:image" content="https://cumulativewebinc.github.io/cwi-verdict-watch/brand/logo.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Verdict Watch",
+  "url": "https://cumulativewebinc.github.io/cwi-verdict-watch/",
+  "description": "The invalidation primitive for verified claims \u2014 re-checks the evidence behind signed trust claims and reports drift for human review.",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires JavaScript",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "Cumulative Web Inc",
+    "url": "https://cumulativeweb.com"
+  }
+}
+</script>
 </head>
 <body>
 <div class="wrap">
   <header class="brand">
-    <div class="mark">CWI</div>
+    <img class="mark" src="brand/logo.jpg" alt="Cumulative Web Inc">
     <div>
       <h1 data-i18n="app.title">Verdict Watch</h1>
       <p class="sub" data-i18n="app.tagline">The invalidation primitive for verified claims — by Cumulative Web Inc</p>
@@ -94,7 +125,17 @@
     </ul>
   </div>
 
-  <footer>
+  
+<section class="os-cta" style="margin:36px 0 8px;padding:26px 20px;border:1px solid #e8b23a;border-radius:12px;text-align:center;background:rgba(232,178,58,.05)">
+  <h2 style="margin:0 0 8px;font-size:20px">Try Verdict Watch live</h2>
+  <p style="margin:0 0 16px;font-size:14px;opacity:.85">The invalidation primitive for verified claims — re-checks the evidence behind signed trust claims and reports drift for human review.</p>
+  <p style="margin:0;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+    <a href="https://cumulativewebinc.github.io/cwi-verdict-watch/" style="display:inline-block;background:#e8b23a;color:#111;font-weight:700;text-decoration:none;padding:11px 22px;border-radius:8px">Try it live: add a watch</a>
+    <a href="https://cumulativewebinc.github.io/cwi-trust-log/" style="display:inline-block;color:#fff;text-decoration:none;padding:11px 22px;border-radius:8px;border:1px solid #888">See the trust log it watches</a>
+  </p>
+</section>
+
+<footer>
     <span data-i18n="footer.text">Verdict Watch · Cumulative Web Inc · trust/1.0 companion · </span>
     <a href="./watches.json">watches.json</a> · <a href="./schema/findings.schema.json">findings schema</a> · <a href="https://cumulativewebinc.github.io/cwi-trust-log/">trust log</a>
   </footer>

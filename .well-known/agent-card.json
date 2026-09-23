@@ -1,0 +1,26 @@
+{
+  "name": "Verdict Watch",
+  "title": "Verdict Watch",
+  "url": "https://cumulativewebinc.github.io/cwi-verdict-watch/",
+  "description": "The invalidation primitive for verified claims \u2014 re-checks the evidence behind signed trust claims and reports drift for human review.",
+  "version": "1.0.0",
+  "provider": {
+    "name": "Cumulative Web Inc",
+    "url": "https://cumulativeweb.com",
+    "contact": "hp@cumulativeweb.com"
+  },
+  "auth": "none",
+  "pricing": "free",
+  "capabilities": [
+    "3 re-check strategies (http-hash, oembed, hf-dataset)",
+    "Machine-readable findings (cwi.watch-finding/1.0)",
+    "?watch=<envelope-url> deep links",
+    "Dogfood: CWI's own 8 trust-log envelopes",
+    "40/40 tests"
+  ],
+  "honest_limits": "v1 flags drift for human review \u2014 it NEVER auto-downgrades a claim. Browser checks are best-effort (CORS-blocked URLs report UNREACHABLE, never DEAD).",
+  "machine_interfaces": {
+    "watches": "https://cumulativewebinc.github.io/cwi-verdict-watch/watches.json",
+    "schema": "https://cumulativewebinc.github.io/cwi-verdict-watch/schema/findings.schema.json"
+  }
+}

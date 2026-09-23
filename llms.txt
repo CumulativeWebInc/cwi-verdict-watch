@@ -1,0 +1,25 @@
+# Verdict Watch
+> The invalidation primitive for verified claims — re-checks the evidence behind signed trust claims and reports drift for human review.
+
+Re-verification engine for signed trust claims: registers watches on claim envelopes, re-checks evidence (http-hash / oEmbed / HF-dataset strategies), and emits STILL_VALID / BASELINED / CHANGED / DEAD / UNREACHABLE findings.
+
+## Live
+- App: https://cumulativewebinc.github.io/cwi-verdict-watch/
+- Try it: https://cumulativewebinc.github.io/cwi-verdict-watch/
+
+## Features
+- 3 re-check strategies (http-hash, oembed, hf-dataset)
+- Machine-readable findings (cwi.watch-finding/1.0)
+- ?watch=<envelope-url> deep links
+- Dogfood: CWI's own 8 trust-log envelopes
+- 40/40 tests
+
+## Machine-readable
+- watches: https://cumulativewebinc.github.io/cwi-verdict-watch/watches.json
+- schema: https://cumulativewebinc.github.io/cwi-verdict-watch/schema/findings.schema.json
+
+## Honest limits
+v1 flags drift for human review — it NEVER auto-downgrades a claim. Browser checks are best-effort (CORS-blocked URLs report UNREACHABLE, never DEAD).
+
+## Provider
+Cumulative Web Inc — hp@cumulativeweb.com

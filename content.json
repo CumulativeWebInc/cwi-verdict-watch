@@ -1,0 +1,29 @@
+{
+  "day": "2026-09-23",
+  "id": "os-retrofit-17",
+  "type": "os-retrofit",
+  "app": "Verdict Watch",
+  "url": "https://cumulativewebinc.github.io/cwi-verdict-watch/",
+  "media_files": [
+    "https://cumulativewebinc.github.io/cwi-verdict-watch/brand/logo.jpg"
+  ],
+  "caption": "Verdict Watch \u2014 The invalidation primitive for verified claims \u2014 re-checks the evidence behind signed trust claims and reports drift for human review. Try it: https://cumulativewebinc.github.io/cwi-verdict-watch/",
+  "hashtags": [
+    "CumulativeWebInc",
+    "AgentDeck",
+    "AIAgents",
+    "OpenSource"
+  ],
+  "threads_text": "Verdict Watch is live from Cumulative Web Inc: The invalidation primitive for verified claims \u2014 re-checks the evidence behind signed trust claims and reports drift for human review. https://cumulativewebinc.github.io/cwi-verdict-watch/",
+  "post_order": 1,
+  "platform_targets": [
+    "threads",
+    "x",
+    "instagram"
+  ],
+  "cta": {
+    "label": "Try it live: add a watch",
+    "url": "https://cumulativewebinc.github.io/cwi-verdict-watch/"
+  },
+  "honest_limits": "v1 flags drift for human review \u2014 it NEVER auto-downgrades a claim. Browser checks are best-effort (CORS-blocked URLs report UNREACHABLE, never DEAD)."
+}
