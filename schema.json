@@ -1,0 +1,14 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Verdict Watch (#31)",
+  "url": "https://cumulativewebinc.github.io/cwi-verdict-watch/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Web",
+  "author": {
+    "@type": "Organization",
+    "name": "Cumulative Web Inc",
+    "url": "https://cumulativeweb.com/"
+  },
+  "description": "Trust-claim re-verification monitor reporting STILL_VALID, CHANGED, DEAD, or UNREACHABLE with diffs."
+}
